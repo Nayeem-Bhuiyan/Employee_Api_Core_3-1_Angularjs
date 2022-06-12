@@ -70,6 +70,7 @@ app.controller('LoadAllEmployeeController', ['$scope', '$rootScope', '$location'
 
                 alert("Update Successfull");
 
+                $('#myModal').modal('hide');
             })
        
     }
