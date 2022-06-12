@@ -1,6 +1,6 @@
 # Employee_Api_Core_3-1_Angularjs
 
-Project Version:Asp core web api(3.1)(Swagger v3)
+Project Version:Asp.net core web api(3.1)(Swagger v3)
 
 IDE:Visual Studio 2022
 
