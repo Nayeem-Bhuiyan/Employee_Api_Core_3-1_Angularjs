@@ -57,9 +57,6 @@ app.controller('LoadAllEmployeeController', ['$scope', '$rootScope', '$location'
             Phone: $scope.Phone,
         };
 
-
-
-        if (Employee != null) {
             empCrudService.Insert("/api/Employee", Employee).then(data => {
                 $rootScope.loading = false;
                 for (i in $scope.Employees) {
@@ -70,10 +67,11 @@ app.controller('LoadAllEmployeeController', ['$scope', '$rootScope', '$location'
                     }
                 }
                 LoadAllEmployees();
-            })
-        } else {
 
-        }
+                alert("Update Successfull");
+
+            })
+       
     }
 
 
