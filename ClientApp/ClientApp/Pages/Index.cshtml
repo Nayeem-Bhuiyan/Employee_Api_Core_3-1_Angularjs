@@ -1,0 +1,135 @@
+﻿@page
+@model ClientApp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@section Styles{
+    <link href="~/font-awesome-pro-master/css/all.css" rel="stylesheet" />
+}
+<div class="text-center" ng-app="app" ng-controller="LoadAllEmployeeController">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-info d-flex justify-content-sm-between">
+                    <div class="card-title text-white">
+                        <h4>Manage Employee</h4>
+                    </div>
+                    <div class="d-inline-block card-title text-white">
+                        <a href="#" class="btn btn-danger" ng-click="DeleteMutipleEmployee()"><i class="fa fa-minus-circle text-white" aria-hidden="true"></i>Delete</a>
+                        <a href="/AddEmployee" class="btn btn-success"><i class="fa fa-plus-circle text-white" aria-hidden="true"></i>Add New Employee</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="emp in Employees">
+                                <td><input type="checkbox" name="isChecked" id="isChecked" ng-model="isChecked" value="" ng-click="GetSelectedId(emp.id)"/></td>
+                                <td>{{emp.name}}</td>
+                                <td>{{emp.email}}</td>
+                                <td>{{emp.address}}</td>
+                                <td>{{emp.phone}}</td>
+                                <td><a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-default" ng-click="GetEdit(emp.id,emp.name,emp.email,emp.address,emp.phone)"><i class="fa fa-pencil text-warning" aria-hidden="true"></i></a><a href="#" class="btn btn-default ml-md-2 text-danger" ng-click="delete(emp.id)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer bg-success text-white text-md-right">
+                    @@Designed By Nayeem Bhuiyan
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header bg-success text-white">
+                    <h4 class="modal-title">Edit Employee</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+                            <form class="form-horizontal" role="form" name="frmEmployee" novalidate>
+                                <input type="hidden" name="Id" id="Id" value="" ng-model="Id" />
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="text" id="Name" name="Name" placeholder="Name" class="form-control" ng-model="Name" required />
+                                        <span class="help-block" ng-show="frmEmployee.Name.$touched && frmEmployee.Name.$invalid">Please enter Name.</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="text" id="Email" name="Email" placeholder="Email" class="form-control" ng-model="Email" required />
+                                        <span ng-show="frmEmployee.Email.$touched && frmEmployee.Email.$error.required">Please enter Email.</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="text" id="Address" name="Address" placeholder="Address" class="form-control" ng-model="Address" required />
+                                        <span ng-show="frmEmployee.Address.$touched && frmEmployee.Address.$error.required">Please enter Address.</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <input type="text" id="Phone" name="Phone" placeholder="Phone" class="form-control" ng-model="Phone" required />
+                                        <span ng-show="frmEmployee.Phone.$touched && frmEmployee.Phone.$error.required">Please enter Phone.</span>
+                                    </div>
+                                </div>
+
+
+                            </form>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <input type="button" value="Save" class="btn btn-primary col-sm-offset-3" ng-click="PostEdit()" />
+                    <input type="reset" value="Clear" class="btn btn-secondary col-sm-offset-3" data-dismiss="modal" ng-click="resetForm()" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- The Modal -->
+
+
+@section Scripts{
+
+    <script src="~/font-awesome-pro-master/js/pro.js"></script>
+    <script src="~/Clientjs/Controller/EmployeeMain.js"></script>
+
+}

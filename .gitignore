@@ -6,3 +6,7 @@
 /EmployeeTest/obj
 /.vs/EmployeeTest/DesignTimeBuild
 /.vs/EmployeeTest/config
+/ClientApp/ClientApp/obj
+/ClientApp/.vs/ClientApp/v17
+/ClientApp/.vs/ClientApp
+/ClientApp/ClientApp/bin/Debug/netcoreapp3.1
