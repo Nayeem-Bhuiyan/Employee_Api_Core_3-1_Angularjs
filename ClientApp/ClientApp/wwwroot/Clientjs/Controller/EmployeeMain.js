@@ -98,12 +98,14 @@ app.controller('LoadAllEmployeeController', ['$scope', '$rootScope', '$location'
 
     $scope.DeleteMutipleEmployee = () => {
 
+        if (confirm("Are you sure you want to Delete these record")) {
+            for (let i = 0; i < $scope.SelectedIdForDelete.length; i++) {
+                DeleteRecord($scope.SelectedIdForDelete[i]);
+            }
 
-        for (let i = 0; i < $scope.SelectedIdForDelete.length; i++) {
-            DeleteRecord($scope.SelectedIdForDelete[i]);
+            alert($scope.SelectedIdForDelete.length + " records deleted successfully done!!");
         }
-
-        alert($scope.SelectedIdForDelete.length+" records deleted successfully done!!");
+        
 
 
     }
