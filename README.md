@@ -4,9 +4,13 @@
 
 IDE:Visual Studio 2022
 
-Bootstrap:Bootstrap v4.3.1
-
 SQL SERVER:2019
 
 BackEnd Service Pattern: Generic and unit of work repository service pattern
+
+# Client Side
+
+Bootstrap 4.3.1
+
+Angularjs
 
